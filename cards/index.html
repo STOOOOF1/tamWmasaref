@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>بطاقات التمويل الإسلامي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: هادئ تعليمي، بطاقة مذاكرة واحدة في كل مرة
+   IDEA: بطاقات الحفظ الورقية في علبة مرتبة بالمستويات
+   PICTURE: البطاقة نفسها هي الصورة: بيضاء بشريط تدرّج علوي
+   COLOUR and TYPE: أخضر مزرق teal مع ذهبي، خط تجوال
+   LAYOUT: عمود واحد حتى 620px: رأس، تقدم، مستويات، بطاقة، أزرار */
+:root{color-scheme:light dark;--bg:light-dark(#eef5f3,#0b1c1b);--card:light-dark(#fff,#132b2a);--ink:light-dark(#14302f,#e5f0ee);--mut:light-dark(#5d6b6a,#9fb5b2);--teal:light-dark(#0f5c5a,#5cc4bd);--teal2:#1b7f7a;--tealL:light-dark(#e3f1ef,#1b3b39);--gold:#b8892f;--goldL:light-dark(#f7efdc,#3a3020);--rose:light-dark(#9c3d3d,#e58a8a);--roseL:light-dark(#f6e6e3,#3a2222);--line:light-dark(#cfe0dd,#24423f)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Tajawal,system-ui,sans-serif;overflow-x:clip}
+.wrap{max-width:620px;margin:0 auto;padding:14px 14px 40px}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+header h1{font-size:21px;font-weight:900;margin:0;color:var(--teal);line-height:1.2}
+header small{display:block;color:var(--mut);font-size:13px;font-weight:500}
+button{font:inherit;cursor:pointer;border:0;border-radius:14px;min-height:44px}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.menuBtn{background:var(--card);color:var(--teal);font-weight:800;padding:0 14px;border:1px solid var(--line)}
+.total{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 14px;margin-bottom:10px}
+.total .row{display:flex;justify-content:space-between;font-weight:700;font-size:14px}
+.bar{height:8px;background:var(--tealL);border-radius:9px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:linear-gradient(to left,var(--gold),var(--teal2));border-radius:9px;transition:width .4s}
+.levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:8px}
+.lv{background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:8px 6px;text-align:center;position:relative;line-height:1.3}
+.lv b{display:block;font-size:13px;color:var(--teal)}
+.lv span{display:block;font-size:12px;color:var(--mut);margin-top:2px}
+.lv .mini{height:4px;background:var(--tealL);border-radius:4px;margin-top:5px;overflow:hidden}.lv .mini i{display:block;height:100%;background:var(--teal2)}
+.lv.on{border-color:var(--teal2);background:var(--tealL)}
+.lv .ck{position:absolute;top:-7px;left:-5px;background:var(--gold);color:#fff;border-radius:50%;width:20px;height:20px;font-size:12px;line-height:20px;font-weight:900}
+.link{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.link button{background:var(--goldL);color:#7a5a16;font-weight:800;padding:0 14px;font-size:14px}
+.link p{margin:0;font-size:13px;color:var(--mut);flex:1 1 200px}
+.card{background:var(--card);border-radius:22px;box-shadow:0 6px 24px rgba(15,92,90,.12);overflow:hidden;animation:in .35s ease}
+.card::before{content:"";display:block;height:6px;background:linear-gradient(to left,var(--teal),var(--teal2),var(--gold))}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.card{animation:none}}
+.cin{padding:16px 18px 18px}
+.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.chap{background:var(--goldL);color:#7a5a16;font-weight:800;font-size:13px;border-radius:20px;padding:2px 10px}
+:root[data-theme=dark] .chap,:root[data-theme=dark] .link button{color:#e6c27a}
+.pos{color:var(--mut);font-size:13px;font-weight:500}
+.card h2{font-size:21px;font-weight:900;margin:2px 0 10px;color:var(--teal);line-height:1.35}
+.body{font-size:16.5px;line-height:1.85}
+.body ul,.body ol{margin:4px 0;padding-right:20px}
+.body li{margin-bottom:3px}
+.body table{width:100%;border-collapse:collapse;font-size:14.5px;margin:6px 0;line-height:1.5}
+.body th{background:var(--teal2);color:#fff;padding:5px 7px;text-align:right}
+.body td{border-bottom:1px solid var(--line);padding:5px 7px;vertical-align:top}
+.body td:first-child{font-weight:700;color:var(--teal)}
+.k{background:var(--teal2);color:#fff;border-radius:6px;padding:0 6px;font-weight:700}
+.v{color:var(--gold);font-weight:700}
+.tip{background:var(--goldL);border-right:4px solid var(--gold);border-radius:8px;padding:6px 10px;margin-top:8px;font-size:15px}
+.warn{background:var(--roseL);border-right:4px solid var(--rose);border-radius:8px;padding:6px 10px;margin-top:8px;font-size:15px}
+.done-badge{color:var(--teal2);font-weight:800;font-size:13px}
+.acts{display:grid;grid-template-columns:2fr 1fr;gap:8px;margin-top:12px}
+#ok{background:var(--teal);color:#fff;font-weight:900;font-size:17px}
+:root[data-theme=dark] #ok{background:#1b7f7a}
+#later{background:var(--card);color:var(--teal);border:1.5px solid var(--line);font-weight:700}
+.sub{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:14px;color:var(--mut)}
+.sub button{background:none;color:var(--teal);font-weight:700;padding:0 6px;min-height:36px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;padding:8px 18px;border-radius:20px;font-weight:800;opacity:0;transition:.3s;pointer-events:none;z-index:9}
+.toast.show{opacity:1}
+.fin{text-align:center;padding:26px 18px}
+.fin .big{font-size:52px}
+.fin h2{margin:6px 0}
+.fin button{display:block;width:100%;margin-top:10px;font-weight:800}
+.fin .p1{background:var(--teal);color:#fff}.fin .p2{background:var(--tealL);color:var(--teal)}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;z-index:8}
+.sheet.open{display:block}
+.sheet .pn{position:absolute;bottom:0;left:0;right:0;max-height:80vh;overflow:auto;background:var(--card);border-radius:22px 22px 0 0;padding:14px 16px 24px;max-width:620px;margin:0 auto}
+.sheet h3{margin:0 0 8px;color:var(--teal)}
+.it{display:flex;gap:8px;align-items:center;width:100%;text-align:right;background:none;color:var(--ink);border-bottom:1px solid var(--line);border-radius:0;padding:6px 2px;font-size:15px}
+.it .st{flex:none;width:24px;height:24px;border-radius:50%;background:var(--tealL);color:var(--teal);font-size:12px;line-height:24px;text-align:center;font-weight:800}
+.it.d .st{background:var(--teal2);color:#fff}
+.it.cur{background:var(--goldL)}
+.rst{margin-top:12px;background:var(--roseL);color:var(--rose);font-weight:800;width:100%}
+.confirm{display:none;margin-top:8px;gap:8px}.confirm.open{display:flex}
+.confirm button{flex:1;font-weight:800}.confirm .y{background:var(--rose);color:#fff}.confirm .n{background:var(--tealL);color:var(--teal)}
+.close{float:left;background:var(--tealL);color:var(--teal);font-weight:800;padding:0 12px}
+</style></head><body>
+<div class="wrap">
+<header><div><h1>بطاقات التمويل الإسلامي</h1><small>والمصارف الإسلامية · 7 دروس</small></div><button class="menuBtn" id="menu">☰ القائمة</button></header>
+<div class="total"><div class="row"><span>التقدم الكلي</span><span id="tot"></span></div><div class="bar"><i id="totBar"></i></div></div>
+<div class="levels" id="levels"></div>
+<div class="link"><button id="copy">🔗 انسخ رابط تقدّمك</button><p>احفظه في المفضلة: يعيدك إلى موضعك وما أنجزته ولو مُسح حفظ المتصفح.</p></div>
+<main id="stage"></main>
+</div>
+<div class="sheet" id="sheet"><div class="pn"><button class="close" id="closeS">إغلاق</button><h3 id="sTitle"></h3><div id="sList"></div>
+<button class="rst" id="rst">إعادة تعيين تقدّم هذا المستوى</button>
+<div class="confirm" id="cf"><button class="y" id="cy">نعم، أعِد التعيين</button><button class="n" id="cn">تراجع</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+{
+const BASE="";
+const LEVELS=[{n:1,name:"الصورة الكبرى"},{n:2,name:"المفاهيم"},{n:3,name:"التفاصيل"}];
+const C=[
+// ===== المستوى 1 =====
+[1,"الدرس 1","ما التمويل الإسلامي؟","تقديم <b>ثروة عينية أو نقدية</b> بقصد <b>الاسترباح</b>، من مالكها إلى شخص آخر يديرها ويتصرف فيها، لقاء <span class='k'>عائد تبيحه الأحكام الشرعية</span>.<div class='tip'>الفكرة: المال يتحرك في نشاط حقيقي، والعائد مقابل هذا النشاط لا مقابل الزمن.</div>"],
+[1,"الدرس 1","بماذا يفترق عن التمويل الربوي؟","محل العقد في الإسلامي <span class='k'>السلعة</span>، وفي الربوي <span class='k'>النقد</span>.<br>الإسلامي <b>عقد واحد</b> يجمع التمويل والتبادل، والربوي عقدان. ولا ربح في الإسلامي على <b>تأخير السداد</b>."],
+[1,"الدرس 1","ما ضوابط التمويل الإسلامي؟","خمسة ضوابط: منع الربا، ووجود أصل حقيقي، والخلو من الغرر، وتقاسم المخاطر والعوائد، وعدم تمويل المحرمات.<div class='tip'>من ينهي هذه البطاقة يعرف «بوابة» أي صيغة: هل مرّت بالضوابط الخمسة؟</div>"],
+[1,"الدرس 2","ما المصرف الإسلامي؟","مؤسسة مالية مصرفية <b>تجمع الأموال وتوظفها</b> وتقدم الخدمات المصرفية، وينص قانون إنشائها صراحة على الالتزام بالشريعة و<span class='k'>عدم التعامل بالفائدة</span> أخذًا وعطاءً.<br>نشأ في العصر الحديث: من مصر 1963 إلى التحول الواسع بعد 2000."],
+[1,"الدرس 2","الوساطة الاستثمارية: قلب المصرف الإسلامي","البنك التقليدي <b>وسيط مالي</b>: يقترض بفائدة ويقرض بفائدة أعلى.<br>البنك الإسلامي <b>وسيط استثماري</b>: يكون <b>بائعًا أو مؤجرًا أو شريكًا أو رب مال</b>، ويربح من النشاط نفسه."],
+[1,"الدرس 3","المرابحة للآمر بالشراء","العميل يعد بشراء سلعة، فيشتريها المصرف ويقبضها، ثم يبيعها له بربح.<br>ثلاث خطوات: <b>وعد ← تملّك وقبض ← بيع</b>."],
+[1,"الدرس 3","التورق","شراء سلعة بثمن مؤجل ثم بيعها نقدًا للحصول على <b>السيولة</b>.<br>الفقهي الفردي <span class='k'>جائز</span>، والمصرفي المنظم والعكسي <b>لا يجوزان</b> بقرار مجمع الفقه الدولي 179."],
+[1,"الدرس 4","الإيجار التمويلي (المنتهي بالتمليك)","المصرف يشتري السلعة، ثم يؤجرها للعميل بأقساط مدة معينة، ثم تنتقل ملكيتها له <b>ببيع أو هبة</b>.<br>حكمه: <b>عقدان في عقد محرّم</b>، و<b>عقدان منفصلان جائز بشروط</b>."],
+[1,"الدرسان 5 و6","السلم والاستصناع","<b>السلم:</b> ثمن حالّ الآن، وسلعة موصوفة تُسلَّم لاحقًا.<br><b>الاستصناع:</b> طلب صنع شيء بمواصفات (كبناء منزل)، والثمن مؤجل غالبًا.<br>ولكلٍّ منهما صورة <b>موازية</b> يتوسط فيها البنك بعقدين."],
+[1,"الدرس 7","البطاقات الائتمانية","أداة دفع وسحب تمكّن حاملها من <b>الشراء بأجل على ذمة مصدرها</b>.<br>لها ثلاثة أنواع وخمسة أطراف، وأحكامها في <span class='k'>المعيار الشرعي 61</span>."],
+// ===== المستوى 2 =====
+[2,"الدرس 1","تعريف التمويل (عامًا)","تحديد احتياجات الأفراد والمنظمات والشركات من الموارد النقدية، وتحديد سبل جمعها واستخدامها، مع الأخذ في الحسبان المخاطر المرتبطة بمشاريعهم.<div class='tip'>ثلاث كلمات: <b>الاحتياج · المصدر · المخاطر</b></div>"],
+[2,"الدرس 1","التمويل في الاقتصاد الإسلامي: نشاطان","<table><tr><th>النشاط الربحي (المعاملات)</th><th>غير الربحي (التبرعات)</th></tr><tr><td>تحريم أكل أموال الناس بالباطل</td><td>القرض والوقف</td></tr><tr><td>الغرم بالغنم</td><td>الصدقة والزكاة</td></tr></table>سؤال الدرس: ما العلاقة بين <b>الربا والصدقة</b>؟"],
+[2,"الدرس 1","العقود المسماة في النشاط الربحي (7)","<ol><li>البيع الآجل</li><li>السلم</li><li>الاستصناع</li><li>المشاركة</li><li>المضاربة</li><li>المساقاة والمزارعة</li><li>الإجارة</li></ol>"],
+[2,"الدرس 1","خصائص التمويل الإسلامي (7)","<ol><li>المال وسيلة، فلا يحقق الربح من ذاته</li><li>ارتباط التمويل بالسوق الحقيقية</li><li>التملك أساس الربح</li><li>اعتماد السوق آلية لتحديد العائد</li><li>العدالة التعاقدية ومنع الاحتكار</li><li>الالتزام الأخلاقي</li><li>العدالة في توزيع الربح والخسارة</li></ol>"],
+[2,"الدرس 1","الضوابط الخمسة بمعانيها","<table><tr><td>منع الربا</td><td>لا أخذ ولا دفع للفوائد</td></tr><tr><td>أصل حقيقي</td><td>سلعة أو خدمة حقيقية</td></tr><tr><td>الخلو من الغرر</td><td>وضوح تام في الشروط والأطراف</td></tr><tr><td>تقاسم المخاطر</td><td>لا ضمان للعائد دون مشاركة في المخاطر</td></tr><tr><td>لا محرمات</td><td>كالخمور والقمار</td></tr></table>"],
+[2,"الدرس 2","تعريف البنك التقليدي","منشأة مصرّح لها حكوميًا، غرضها الرئيس <b>تجميع المدخرات</b> و<b>منح القروض</b>، إضافة إلى أعمال أخرى مرتبطة بهذه الأغراض.<div class='tip'>اسم وظيفته: <b>الوساطة المالية</b>.</div>"],
+[2,"الدرس 2","التعريف الأنسب للبنك الإسلامي","«مؤسسات مالية مصرفية لتجميع الأموال وتوظيفها، وتقديم الخدمات المصرفية، وينص قانون إنشائها ونظامها الأساسي صراحةً على الالتزام بمبادئ الشريعة، وعلى عدم التعامل بالفائدة أخذًا وعطاءً».<br>وهو أنسب للبنوك المعاصرة من التعريفات السابقة."],
+[2,"الدرس 2","خصائص النظام المصرفي الإسلامي (4)","<ol><li>الوساطة الاستثمارية</li><li>الغرم بالغنم وعلاقتها بالمخاطرة</li><li>خصائص العائد</li><li>الإرادة العقدية</li></ol>"],
+[2,"الدرس 2","خصائص العائد (الربح) في المصارف الإسلامية","<ul><li>لا ربح بدون <b>عمل</b></li><li>ليس <b>محددًا</b>، بل <b>معلوم بحصة شائعة</b></li><li>يكون بعد <b>سلامة رأس المال</b></li><li>حدّه بتقدير المصرف، وقد تحدده الدولة للمصلحة أو الضرورة</li></ul>"],
+[2,"الدرس 3","خطوات المرابحة وخطوات التورق المصرفي","<b>المرابحة:</b> الوعد بالشراء ← تملّك المصرف للسلعة وقبضها ← بيعها للعميل.<br><b>التورق المصرفي:</b> الخطوات نفسها + <span class='k'>بيع العميل للسلعة أو توكيل المصرف في بيعها</span>."],
+[2,"الدرس 3","أنواع التورق في قرار 179","<table><tr><td>الفقهي</td><td>شراء سلعة بمؤجل وبيعها نقدًا بأقل غالبًا لغير من اشتُريت منه: <b>جائز</b> بشروط البيع</td></tr><tr><td>المنظم</td><td>يتولى البائع (الممول) ترتيب بيعها بنفسه أو بوكيل أو بتواطؤ: <b>لا يجوز</b></td></tr><tr><td>العكسي</td><td>المنظم نفسه، والمستورق هو المؤسسة: <b>لا يجوز</b></td></tr></table>"],
+[2,"الدرس 4","الإيجار التمويلي: مفهومه ومراحله","<b>المفهوم:</b> شراء المصرف لسلعة ثم تأجيرها للعميل مقابل أقساط مدة معينة، تنتقل بعدها ملكيتها له ببيع أو هبة.<br><b>المراحل:</b> رغبة العميل والوعد بالاستئجار ← شراء البنك للسلعة وقبضها ← تأجيرها ← انتقال الملكية."],
+[2,"الدرس 4","الفرق بين البيع والإجارة","<table><tr><th></th><th>الإيجار</th><th>البيع</th></tr><tr><td>اللزوم</td><td>لازم</td><td>لازم</td></tr><tr><td>التملك</td><td>المنفعة دون العين</td><td>العين مع المنفعة</td></tr><tr><td>الضمان</td><td>على المؤجر</td><td>على المشتري</td></tr><tr><td>الفسخ</td><td>بتلف العين، والتعدي والتفريط، والعيب والغبن والتدليس</td><td>بالعيب والغبن والتدليس فقط</td></tr></table>"],
+[2,"الدرس 5","تعريف السلم وحكمته","<b>التعريف:</b> عقد على موصوف في الذمة، مؤجَّل، بثمن مقبوض في مجلس العقد.<br><b>مثاله:</b> 100 كيلو تمر بمواصفات محددة تُسلَّم بعد شهر، مقابل ألف ريال حالّة.<br><b>حكمته:</b> التمويل للبائع، والاسترخاص للمشتري."],
+[2,"الدرس 6","الفرق بين السلم والاستصناع","<table><tr><th></th><th>السلم</th><th>الاستصناع</th></tr><tr><td>العقد</td><td>بيع موصوف في الذمة</td><td>بيع + إجارة</td></tr><tr><td>خيار الشرط والعربون</td><td>يمتنع</td><td>يجوز</td></tr><tr><td>تأجيل رأس المال</td><td>يمتنع</td><td>يجوز</td></tr><tr><td>الشرط الجزائي</td><td>يمتنع</td><td>يجوز</td></tr></table>"],
+[2,"الدرس 7","تعريف بطاقة الائتمان","أداة دفع وسحب، يصدرها مصرف تجاري أو مؤسسة مالية، تمكّن حاملها من <b>الشراء بأجل على ذمة مصدرها</b>، وتمكّنه من الحصول على <b>خدمات خاصة</b>."],
+[2,"الدرس 7","أنواع البطاقات وأطرافها","<b>الأنواع:</b> بطاقة الحسم الفوري (المغطاة) · الائتمان غير المتجدد · الائتمان المتجدد.<br><b>الأطراف:</b> مصدر البطاقة · حاملها (العميل) · الشركة الراعية · قابل البطاقة (التاجر) · بنك قابل البطاقة (بنك التاجر)."],
+[2,"الدرس 2","الريبو والريبو العكسي والسايبور","<b>الريبو (Repo = Repurchase):</b> «إعادة الشراء»، سعر إقراض البنك المركزي للبنوك التجارية.<br><b>الريبو العكسي:</b> سعر ما تودعه البنوك لدى المركزي.<br><b>السايبور:</b> سعر الفائدة بين البنوك."],
+[2,"الدرس 5","لا تخلط: المسلِم والمسلَم إليه","<b>المسلِم</b> (بكسر اللام): المشتري الذي يدفع الثمن حالًّا.<br><b>المسلَم إليه</b> (بفتح اللام): البائع الذي يسلّم السلعة لاحقًا.<br><b>المسلَم فيه:</b> السلعة.<div class='tip'>المسلِم «أسلَمَ» المال، والمال أُسلِم إليه.</div>"],
+[2,"الدرس 6","لا تخلط: المستصنِع والصانع","<b>المستصنِع:</b> طالب الصنعة، أي المشتري (العميل).<br><b>الصانع:</b> المنفّذ، أي البائع (المقاول).<br>في الاستصناع الموازي يكون البنك <b>صانعًا</b> مع العميل و<b>مستصنِعًا</b> مع المقاول."],
+// ===== المستوى 3 =====
+[3,"الدرس 1","البيع والربا: منفعة التبادل","الربا يقع في <b>المتماثلات</b>، فلولا الأجل لم تتحقق الفائدة.<br>أما البيع فيحقق <b>منفعة التبادل</b> ولو لم يكن فيه أجل."],
+[3,"الدرس 1","البيع والربا: انتفاع الأطراف والحافز التنموي","<b>انتفاع الأطراف:</b> دخول جميع أفراد المجتمع في السوق بالبيع والشراء لا يضر الاقتصاد بل العكس، والربا يدمّره.<br><b>الحافز التنموي:</b> الربا يؤدي إلى انقطاع المنافع وتعطّل الصناعات، والبيع يحفزها."],
+[3,"الدرس 1","الإسلامي والربوي: الجدول الكامل","<table><tr><th></th><th>الإسلامي</th><th>الربوي</th></tr><tr><td>محل العقد</td><td>السلعة</td><td>النقد</td></tr><tr><td>آلية التعاقد</td><td>عقد واحد يجمع التمويل والتبادل</td><td>عقدان: تمويل ثم تبادل</td></tr><tr><td>بعد القرض</td><td>لا ربح في تأخير السداد</td><td>ربح في تأخير السداد</td></tr><tr><td>التكلفة</td><td>ربح ثابت</td><td>فائدة تأخيرية وتكاليف خدمة الدين</td></tr></table>"],
+[3,"الدرس 1","مثال القرية المنكوبة","5 أصدقاء يقترض كل منهم 100 دينار، فالمجموع <b>500</b>.<br>الفائدة السنوية 8%، فعلى كل شخص 108، والمطلوب <b>540</b>.<br>المتاح 500، فالعجز <b>40</b>، فيُقترض لسداده بفائدة جديدة فيتراكم الدين.<div class='warn'>تزيد الديون بينما تبقى النقود المتاحة محدودة.</div>"],
+[3,"الدرس 2","تعريفات أخرى للبنك الإسلامي","<ul><li>مؤسسة مصرفية لتجميع الأموال وتوظيفها في نطاق الشريعة، بما يخدم <b>مجتمع التكافل</b> ويحقق <b>عدالة التوزيع</b>.</li><li>مؤسسة نقدية مالية تجلب الموارد النقدية وتوظفها شرعًا لتحقيق <b>التنمية الاقتصادية والتقدم الاجتماعي</b>.</li><li>مؤسسة مالية استثمارية ذات <b>رسالة تنموية وإنسانية واجتماعية</b>.</li></ul>"],
+[3,"الدرس 2","النشأة (1): من أوروبا إلى مصر","<ul><li><b>أواخر ق16م:</b> البنوك التجارية في أوروبا</li><li><b>منتصف ق19م:</b> البنوك التقليدية في العالم الإسلامي مع المد الاستعماري</li><li><b>1963م:</b> بنوك الادخار المحلية بمصر (د. أحمد النجار)</li><li><b>1971م:</b> بنك ناصر الاجتماعي</li></ul>"],
+[3,"الدرس 2","النشأة (2): أول البنوك الإسلامية","<ul><li><b>1975م:</b> بنك دبي الإسلامي، أول بنك إسلامي خاص، أسسه سعيد أحمد لوتاه</li><li><b>1977م:</b> بنك فيصل الإسلامي في السودان ومصر، وبيت التمويل الكويتي، ومصرف الراجحي في السعودية</li></ul><div class='tip'>63 مصر · 75 دبي · 77 فيصل</div>"],
+[3,"الدرس 2","النشأة (3): المجموعات والتوسع","<ul><li><b>أواخر السبعينات:</b> دار المال الإسلامي (محمد الفيصل)، ومجموعة البركة (صالح كامل)</li><li><b>مطلع الثمانينات:</b> الدول الإسلامية الآسيوية، والامتداد إلى أوروبا</li><li><b>التسعينات:</b> زيادة العدد ورؤوس الأموال، والندوات والمؤتمرات، والقوانين المنظمة</li></ul>"],
+[3,"الدرس 2","النشأة (4): تحوّل البنوك التقليدية","تحولت بنوك تقليدية إلى المصرفية الإسلامية:<ul><li>بنك الشارقة <b>2002</b></li><li>بنك الجزيرة <b>2007</b></li><li>البنك الأهلي <b>2008</b></li></ul>"],
+[3,"الدرس 2","الوساطة في البنكين بالتفصيل","<table><tr><th></th><th>التقليدي</th><th>الإسلامي</th></tr><tr><td>أصحاب الودائع</td><td>يقترض منهم بفائدة 2%</td><td>الجاري: قرض بلا فائدة<br>الاستثماري: مشاركة بربح</td></tr><tr><td>مستخدمو الأموال</td><td>يقرضهم بفائدة 3%</td><td>بائع/مؤجر/شريك/رب مال، والعميل مشترٍ/مستأجر/شريك/مضارب</td></tr></table>"],
+[3,"الدرس 2","مثال: حساب العوائد (مضاربة)","إيداع <b>50,000</b> من 17/9/2023 إلى 16/12/2023 (<b>3 أشهر</b>)، بمعدل ربح متوقع <b>5.1%</b>، غير قابل للتجديد ← ربح متوقع <b>637.5</b>.<br>فترات الاستثمار: شهر، 3 أشهر، 6 أشهر، إلى 12 شهرًا."],
+[3,"الدرس 2","مثال: بنك البلاد (مدة أطول = عائد أعلى)","الحد الأدنى 100,000:<table><tr><th>المدة</th><th>معدل الربح</th><th>العائد المتوقع</th></tr><tr><td>شهر</td><td>5.27%</td><td>439.6</td></tr><tr><td>3 أشهر</td><td>5.65%</td><td>1,414.2</td></tr><tr><td>6 أشهر</td><td>5.77%</td><td>2,886.2</td></tr><tr><td>12 شهرًا</td><td>5.88%</td><td>5,879.1</td></tr></table>"],
+[3,"الدرس 2","قرار البنك المركزي السعودي (26 يوليو 2023)","<ul><li>رفع <b>الريبو</b> 25 نقطة أساس إلى <b>6.00%</b></li><li>رفع <b>الريبو العكسي</b> 25 نقطة أساس إلى <b>5.50%</b></li><li>الهدف: <b>المحافظة على الاستقرار النقدي</b></li></ul>"],
+[3,"الدرس 2","من الريبو إلى المستهلك","ريبو المركزي <b>6%</b> ← سايبور بين البنوك <b>5.9%</b> ← على المستهلك: سايبور + 3 = <b>8.9%</b>."],
+[3,"الدرس 2","التكليفات المشتركة","المقارنة بين قرارات الهيئات الشرعية (الراجحي، البلاد، الجزيرة، الإنماء، الأهلي) وقرارات هيئات الاجتهاد الجماعي (مجمع الفقه الدولي، المجمع الفقهي بالرابطة، المعايير الشرعية) في:<br>المرابحة والتورق · الإجارة والسلم والاستصناع · البطاقات · الحسابات والصناديق · الصكوك."],
+[3,"الدرس 3","التورق الفردي والمنظم (1)","<table><tr><th></th><th>الفردي</th><th>المنظم</th></tr><tr><td>طبيعته</td><td>بسيط على بضاعة حقيقية</td><td>مركّب منظم، سلع محددة في أسواق دولية</td></tr><tr><td>البائع</td><td>المستورق نفسه</td><td>البنك بتوكيل من العميل</td></tr><tr><td>قبض الثمن</td><td>المستورق من المشتري</td><td>البنك ثم يعطيه للعميل</td></tr></table>"],
+[3,"الدرس 3","التورق الفردي والمنظم (2)","<table><tr><th></th><th>الفردي</th><th>المنظم</th></tr><tr><td>علاقة البائع</td><td>لا علاقة له بهدف المشتري</td><td>تفاهم بين الطرفين</td></tr><tr><td>الاتفاق المسبق</td><td>لا يوجد</td><td>لا بد منه</td></tr><tr><td>الأطراف</td><td>ثلاثة</td><td>رابع هو البنك</td></tr></table>"],
+[3,"الدرس 3","قرار 179 (19/5): البيانات وعلة المنع","مجمع الفقه الإسلامي الدولي، الدورة 19، الشارقة، 1–5 جمادى الأولى 1430هـ (26–30 أبريل 2009م).<div class='warn'><b>العلة:</b> في المنظم والعكسي تواطؤ بين الممول والمستورق صراحة أو ضمنًا أو عرفًا، تحايلًا لتحصيل نقد حاضر بأكثر منه في الذمة، وهو ربا.</div>"],
+[3,"الدرس 3","قرار 179: التوصيات","<ol><li>التأكيد على المصارف باستخدام الصيغ المشروعة وتجنب المحرمة والمشبوهة، بما يحقق مقاصد الشريعة ويجلّي فضيلة الاقتصاد الإسلامي.</li><li>تشجيع <b>القرض الحسن</b> لتجنيب المحتاجين اللجوء للتورق، وإنشاء صناديق له.</li></ol>"],
+[3,"الدرس 3","تساؤلات المرابحة (المعايير الشرعية)","<ul><li>المواعدة الملزمة للطرفين</li><li>شراء سلعة دفع العميل عربونًا لمالكها</li><li>العربون وهامش الجدية وحكمه عند النكول</li><li>توكيل الآمر بالشراء</li><li>التأمين والشحن قبل العقد</li><li>حلول الأقساط · غرامة التأخير · الحطيطة عند السداد المبكر</li></ul>"],
+[3,"الدرس 3","تساؤلات التورق","<ul><li>شراء سلعة غير مقصودة لذاتها بغرض التورق</li><li>التورق في الأسواق المنظمة كالمعادن وزيت النخيل</li><li>بيع السلعة إلى بائعها الأول أو رجوعها له</li><li>توكيل العميل المصرف في بيع السلعة</li></ul>"],
+[3,"الدرس 4","مثال موسى بالأرقام","موسى راتبه قليل ويريد سيارة:<ol><li>البنك يشتريها بـ<b>100 ألف</b> نقدًا ويتملكها</li><li>يؤجرها لموسى 5 سنوات بـ<b>110 آلاف</b> أقساطًا</li><li>تنتقل الملكية بـ<b>20 ألفًا</b> (بيع بدفعة أخيرة) أو هبة</li></ol>"],
+[3,"الدرس 4","فتوى هيئة كبار العلماء بالتحريم","حين نشأ العقد إيجارًا وبيعًا في عقد واحد، حُرّم لأسباب:<ol><li>عقدان على عين واحدة غير مستقر على أحدهما، مختلفان متنافيان في الحكم</li><li>الأجرة تقدَّر بأكثر من المعتاد لاعتبار التملك</li><li>يؤدي إلى التساهل في الديون</li></ol>"],
+[3,"الدرس 4","قرار مجمع الفقه: شروط الجواز","إذا كان العقدان <b>منفصلين</b> جاز بشروط:<ol><li>أجرة فعلية لا ساترة للبيع</li><li>ضمان العين المؤجرة على المالك لا المستأجر</li><li>تطبيق أحكام الإجارة طوال المدة</li><li>الصيانة الأساسية على المؤجر، والتشغيلية على المستأجر</li></ol><div class='tip'>أجرة · ضمان · أحكام · صيانة</div>"],
+[3,"الدرس 4","تساؤلات الإيجار التمويلي (1)","<ul><li>طلب العميل شراء سلعة ووعده باستئجارها</li><li>مبلغ تحجزه المؤسسة ضمانًا للجدية</li><li>حساب الضرر الفعلي في الإجارة التمويلية والتشغيلية</li><li>شراء عين من شخص ثم إجارتها عليه</li><li>تأجير الموصوف في الذمة</li><li>تحميل المستأجر الصيانة الأساسية</li><li>من يتحمل التأمين؟ وتضمينه في الأجرة</li></ul>"],
+[3,"الدرس 4","تساؤلات الإيجار التمويلي (2)","<ul><li>الأجرة المتغيرة وربطها بمؤشر</li><li>اشتراط حلول جميع الأقساط، وانتفاع المستأجر بعدها</li><li>زيادة الأجرة عند التأخر</li><li>بيع العين المؤجرة لغير المستأجر</li><li>تحديد طريقة التملك وإلزامه</li><li>التملك بهبة مشروطة بسداد الأقساط</li><li>تلف العين: هل يستحق العميل الزائد عن أجرة المثل؟</li></ul>"],
+[3,"الدرس 5","السلم الموازي بالأرقام","<b>العقد 1 (أجل 25/6):</b> البنك (مسلِم) يدفع للمزارع 50 ألفًا حالّة مقابل 10 أطنان برتقال.<br><b>العقد 2 (أجل 1/7):</b> التاجر (مسلِم) يدفع للبنك 60 ألفًا حالّة مقابل 10 أطنان برتقال.<div class='tip'>البنك مشترٍ ثم بائع، وفرقه 10 آلاف.</div>"],
+[3,"الدرس 6","الاستصناع الموازي بالأرقام","<b>العقد 1 (أجل 25/7):</b> العميل (مستصنِع) يدفع للبنك (صانع) 500 ألف مؤجلة غالبًا لبناء منزل بمواصفات.<br><b>العقد 2 (أجل 25/6):</b> البنك (مستصنِع) يدفع للمقاول (صانع) 450 ألفًا.<div class='tip'>أجل المقاول قبل أجل العميل.</div>"],
+[3,"الدرسان 5 و6","أبرز تساؤلات السلم والاستصناع","<b>السلم:</b> تأخير رأس المال · كونه دينًا · السلم في المعيّن · شروط المسلَم فيه · بيعه قبل قبضه · الشرط الجزائي · حكم الموازي · المتاجر الإلكترونية.<br><b>الاستصناع:</b> اللزوم · العقد قبل التملك · البراءة من العيوب · توكيل الغير · العربون · الظروف الطارئة · اختلاف الصفات · الشرط الجزائي."],
+[3,"الدرس 7","تساؤلات المعيار 61 للبطاقات","<ul><li>تكييف علاقة المصدر بالحامل (عند الإصدار والاستخدام)</li><li>علاقة التاجر ببنك التاجر</li><li>رسوم الإصدار والتجديد والسحب والتقسيط</li><li>تكييف عمولة التاجر</li><li>شراء الذهب والفضة بالبطاقة</li><li>الهدايا والمزايا · سداد الرسوم بتورق</li></ul>"]
+];
+const cnt={};const CARDS=C.map(([l,ch,t,b])=>{cnt[l]=(cnt[l]||0)+1;return{id:`L${l}-${cnt[l]}`,l,ch,t,b}});
+LEVELS.forEach(L=>L.total=CARDS.filter(c=>c.l===L.n).length);
+const KEY="tamwil-cards-v1";
+let S={done:{},level:1,order:{}};
+try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x&&x.done)S=Object.assign(S,x)}catch(e){}
+let cur=null,hist=[],view="card";
+const $=id=>document.getElementById(id);
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const lvCards=n=>{const ids=CARDS.filter(c=>c.l===n).map(c=>c.id);let o=(S.order[n]||[]).filter(i=>ids.includes(i));ids.forEach(i=>{if(!o.includes(i))o.push(i)});S.order[n]=o;return o.map(i=>CARDS.find(c=>c.id===i))};
+const doneIn=n=>CARDS.filter(c=>c.l===n&&S.done[c.id]).length;
+/* رابط التقدم: #p<hex>l<n>c<id-index> (حروف وأرقام فقط) */
+const P={enc(){let h="";for(let i=0;i<CARDS.length;i+=4){let v=0;for(let j=0;j<4;j++)if(CARDS[i+j]&&S.done[CARDS[i+j].id])v|=1<<j;h+=v.toString(16)}const ci=cur?CARDS.findIndex(c=>c.id===cur):0;return`p${h}l${S.level}c${ci}`},
+ dec(s){const m=/^#?p([0-9a-f]+)l(\d+)c(\d+)$/.exec(s||"");if(!m)return null;const d={};[...m[1]].forEach((ch,k)=>{const v=parseInt(ch,16);for(let j=0;j<4;j++)if(v>>j&1&&CARDS[k*4+j])d[CARDS[k*4+j].id]=1});return{done:d,level:+m[2],c:CARDS[+m[3]]}},
+ sync(){try{history.replaceState(null,"","#"+P.enc())}catch(e){}},
+ url(){return(BASE||location.href.split("#")[0])+"#"+P.enc()}};
+{const r=P.dec(location.hash);if(r){const before=Object.keys(S.done).length,inLink=Object.keys(r.done).length;Object.assign(S.done,r.done);if(inLink>=before&&LEVELS.some(L=>L.n===r.level)){S.level=r.level;if(r.c&&r.c.l===r.level)cur=r.c.id}save()}}
+function toast(t){const e=$("toast");e.textContent=t;e.classList.add("show");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("show"),1500)}
+function nextOf(n){const cs=lvCards(n);return cs.find(c=>!S.done[c.id])}
+function head(){const all=CARDS.length,d=Object.keys(S.done).filter(k=>CARDS.some(c=>c.id===k)).length;$("tot").textContent=`${d} / ${all}`;$("totBar").style.width=(d/all*100)+"%";
+ $("levels").innerHTML=LEVELS.map(L=>{const d=doneIn(L.n);return`<button class="lv ${S.level===L.n?"on":""}" data-l="${L.n}">${d===L.total?'<span class="ck">✓</span>':""}<b>المستوى ${L.n}</b>${L.name}<span>${d} / ${L.total}</span><div class="mini"><i style="width:${d/L.total*100}%"></i></div></button>`}).join("")}
+function render(){head();const st=$("stage");const L=LEVELS.find(x=>x.n===S.level);const cs=lvCards(S.level);
+ if(view==="fin"){const last=S.level===LEVELS[LEVELS.length-1].n;st.innerHTML=`<div class="card"><div class="fin"><div class="big">🎉</div><h2>أتممت المستوى ${L.n}: ${L.name}</h2><p>${last?"أنهيت كل مستويات المقرر، بارك الله لك.":"أحسنت، ثبّتّ هذا المستوى."}</p>${last?"":`<button class="p1" id="nx">انتقل إلى المستوى ${L.n+1}</button>`}<button class="p2" id="rv">راجع بطاقات هذا المستوى</button></div></div>`;
+  if(!last)$("nx").onclick=()=>goLevel(L.n+1);$("rv").onclick=()=>{view="card";cur=cs[0].id;hist=[];render()};P.sync();return}
+ if(!cur||!cs.some(c=>c.id===cur)){const n=nextOf(S.level);if(!n){view="fin";return render()}cur=n.id}
+ const c=CARDS.find(x=>x.id===cur),i=cs.findIndex(x=>x.id===cur)+1,left=cs.filter(x=>!S.done[x.id]).length,isD=!!S.done[c.id];
+ st.innerHTML=`<div class="card" id="cd"><div class="cin"><div class="meta"><span class="chap">${c.ch}</span><span class="pos">المستوى ${L.n} · بطاقة ${i} من ${cs.length} ${isD?'<span class="done-badge">· ✓ منجزة</span>':""}</span></div><h2>${c.t}</h2><div class="body">${c.b}</div>
+ <div class="acts"><button id="ok">✓ تم، فهمتها</button><button id="later">${isD?"إلغاء تم":"لاحقًا"}</button></div>
+ <div class="sub"><button id="prev" ${hist.length?"":"disabled style='opacity:.4'"}>→ السابقة</button><span>بقي ${left} في هذا المستوى</span></div></div></div>`;
+ $("ok").onclick=()=>{S.done[c.id]=1;save();hist.push(c.id);toast("أحسنت");const n=nextAfter(c.id);if(!n){view="fin";cur=null}else cur=n.id;render()};
+ $("later").onclick=()=>{if(isD){delete S.done[c.id];save();render();return}const o=S.order[S.level];o.splice(o.indexOf(c.id),1);o.push(c.id);save();hist.push(c.id);const n=nextAfter(c.id,true);cur=n?n.id:c.id;render()};
+ $("prev").onclick=()=>{if(hist.length){cur=hist.pop();render()}};
+ P.sync()}
+function nextAfter(id,skip){const cs=lvCards(S.level);const k=cs.findIndex(c=>c.id===id);const rest=cs.slice(k+1).concat(cs.slice(0,k+1));return rest.find(c=>!S.done[c.id]&&(!skip||c.id!==id))}
+function goLevel(n){S.level=n;view="card";cur=null;hist=[];save();render();window.scrollTo({top:0,behavior:"smooth"})}
+$("levels").addEventListener("click",e=>{const b=e.target.closest(".lv");if(b)goLevel(+b.dataset.l)});
+$("menu").onclick=()=>{const L=LEVELS.find(x=>x.n===S.level);$("sTitle").textContent=`المستوى ${L.n}: ${L.name}`;
+ $("sList").innerHTML=lvCards(S.level).map((c,i)=>`<button class="it ${S.done[c.id]?"d":""} ${c.id===cur?"cur":""}" data-id="${c.id}"><span class="st">${S.done[c.id]?"✓":i+1}</span>${c.t}</button>`).join("");$("cf").classList.remove("open");$("sheet").classList.add("open")};
+$("sList").addEventListener("click",e=>{const b=e.target.closest(".it");if(!b)return;if(cur)hist.push(cur);cur=b.dataset.id;view="card";$("sheet").classList.remove("open");render()});
+$("closeS").onclick=()=>$("sheet").classList.remove("open");
+$("sheet").addEventListener("click",e=>{if(e.target.id==="sheet")$("sheet").classList.remove("open")});
+$("rst").onclick=()=>$("cf").classList.add("open");$("cn").onclick=()=>$("cf").classList.remove("open");
+$("cy").onclick=()=>{CARDS.filter(c=>c.l===S.level).forEach(c=>delete S.done[c.id]);delete S.order[S.level];save();cur=null;hist=[];view="card";$("sheet").classList.remove("open");render();toast("أُعيد تعيين المستوى")};
+$("copy").onclick=async()=>{const u=P.url();let ok=false;try{await navigator.clipboard.writeText(u);ok=true}catch(e){}
+ if(!ok){try{const t=document.createElement("textarea");t.value=u;document.body.appendChild(t);t.select();ok=document.execCommand("copy");t.remove()}catch(e){}}
+ if(ok)toast("نُسخ رابط تقدّمك");else{const st=$("stage");st.insertAdjacentHTML("afterbegin",`<div class="tip" style="margin-bottom:10px;word-break:break-all">انسخ هذا الرابط: ${u}</div>`)}};
+window.__LEVELS=LEVELS;
+render();
+}
+</script>
+</body></html>
