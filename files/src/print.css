@@ -1,0 +1,106 @@
+/* أنماط الطباعة المشتركة للمذكرة والملخص
+   ألوان موفّرة للحبر: خلفية بيضاء، ألوان للنص والخطوط الرفيعة فقط، بلا مساحات معبّأة */
+@font-face{font-family:Tajawal;src:url(../../assets/fonts/Tajawal-Light.ttf);font-weight:300}
+@font-face{font-family:Tajawal;src:url(../../assets/fonts/Tajawal-Regular.ttf);font-weight:400}
+@font-face{font-family:Tajawal;src:url(../../assets/fonts/Tajawal-Medium.ttf);font-weight:500}
+@font-face{font-family:Tajawal;src:url(../../assets/fonts/Tajawal-Bold.ttf);font-weight:700}
+@font-face{font-family:Tajawal;src:url(../../assets/fonts/Tajawal-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:Tajawal;src:url(../../assets/fonts/Tajawal-Black.ttf);font-weight:900}
+:root{--ink:#1e2a2c;--mute:#5b6a6c;--teal:#0f5c58;--teal-l:#7fb3ad;--gold:#94661c;--gold-l:#d9bf8c;--rose:#9c3d3d;--line:#c9d8d5;--hair:#e2eae8}
+@page{size:A4;margin:16mm 15mm 17mm}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font-family:Tajawal,sans-serif;font-size:10.6pt;line-height:1.75}
+body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.page-break{break-before:page}
+.avoid{break-inside:avoid}
+
+/* ===== الغلاف ===== */
+.cover{height:262mm;border:1.4pt solid var(--teal);border-radius:4mm;padding:16mm 14mm;display:flex;flex-direction:column;position:relative}
+.cover::after{content:"";position:absolute;inset:2.2mm;border:.5pt solid var(--teal-l);border-radius:3mm;pointer-events:none}
+.cover .kicker{color:var(--gold);font-weight:700;font-size:11pt;letter-spacing:.3px;margin:0}
+.cover h1{font-size:33pt;font-weight:900;line-height:1.3;margin:6mm 0 3mm;color:var(--teal)}
+.cover h1 span{color:var(--gold)}
+.cover .lead{font-size:12pt;color:var(--mute);margin:0}
+.ai-box{border:1.2pt dashed var(--gold);border-radius:3mm;padding:3.5mm 5mm;margin:7mm 0 0;font-size:10.4pt;line-height:1.7}
+.ai-box strong{color:var(--gold);display:block;font-size:11.5pt;margin-bottom:1mm}
+.toc{margin-top:auto;border-top:1pt solid var(--teal);padding-top:4mm}
+.toc h2{font-size:13pt;color:var(--teal);margin:0 0 2mm}
+.toc ol{list-style:none;margin:0;padding:0;columns:2;column-gap:10mm}
+.toc li{display:flex;gap:3mm;align-items:center;padding:1.3mm 0;border-bottom:.5pt solid var(--hair);break-inside:avoid;font-size:10.6pt}
+.toc li .n{flex:0 0 7mm;height:7mm;border:1pt solid var(--teal);border-radius:50%;display:grid;place-items:center;color:var(--teal);font-weight:800;font-size:9.5pt}
+.toc li .new{color:var(--gold);font-size:8.5pt;font-weight:700;margin-inline-start:auto}
+
+/* ===== رأس الدرس ===== */
+.lesson-head{border:1.2pt solid var(--teal);border-radius:3mm;padding:3mm 5mm;margin:0 0 4mm;display:flex;gap:4mm;align-items:center}
+.lesson-head .chip{flex:none;border:1pt solid var(--gold);color:var(--gold);border-radius:99px;padding:.3mm 4mm;font-weight:800;font-size:10.5pt}
+.lesson-head h2{margin:0;font-size:17pt;font-weight:900;color:var(--teal);line-height:1.35}
+.elements{display:flex;flex-wrap:wrap;gap:1.6mm;margin:0 0 3mm;padding:0;list-style:none}
+.elements li{border:.7pt solid var(--line);border-radius:99px;padding:.2mm 3.5mm;font-size:9.4pt;color:var(--mute)}
+
+h3{font-size:12.4pt;font-weight:800;color:var(--teal);margin:5mm 0 2mm;padding-inline-start:3mm;border-inline-start:2.2pt solid var(--gold);line-height:1.4;break-after:avoid}
+h4{font-size:11pt;font-weight:800;color:var(--ink);margin:3mm 0 1.5mm;break-after:avoid}
+
+.q{border:.8pt dashed var(--rose);border-radius:2mm;padding:1.5mm 4mm;margin:2mm 0;color:var(--rose);font-weight:700}
+.q::before{content:"؟ ";font-weight:900}
+.def{border-inline-start:2.4pt solid var(--teal);padding:1mm 4mm;margin:2mm 0 3mm;font-size:11pt}
+.def .lbl{color:var(--teal);font-weight:800}
+.quote{border:.8pt solid var(--teal-l);border-radius:2mm;padding:2mm 4mm;margin:2mm 0}
+.note{border:.8pt dashed var(--gold-l);border-radius:2mm;padding:1.5mm 4mm;margin:2mm 0;font-size:9.6pt;color:var(--mute)}
+.note b{color:var(--gold)}
+.k{color:var(--teal);font-weight:800}
+.g{color:var(--gold);font-weight:800}
+.small{font-size:9.4pt;color:var(--mute)}
+
+/* جداول بلا تعبئة */
+table.t{width:100%;border-collapse:collapse;margin:2mm 0 3mm;font-size:10pt;line-height:1.55;break-inside:auto}
+table.t th{color:var(--teal);font-weight:800;text-align:right;padding:1.4mm 2.5mm;border-bottom:1.4pt solid var(--teal);vertical-align:bottom}
+table.t td{padding:1.4mm 2.5mm;border-bottom:.5pt solid var(--line);vertical-align:top}
+table.t tr{break-inside:avoid}
+table.t td.h{font-weight:800;color:var(--teal);white-space:nowrap}
+table.t.c td,table.t.c th{text-align:center}
+table.t.c td.h{text-align:right}
+
+/* قوائم مرقّمة بدوائر */
+ol.nums{list-style:none;margin:1mm 0 3mm;padding:0;counter-reset:n}
+ol.nums>li{counter-increment:n;display:flex;gap:2.5mm;align-items:flex-start;padding:.9mm 0;border-bottom:.4pt solid var(--hair);break-inside:avoid}
+ol.nums>li::before{content:counter(n);flex:0 0 5.6mm;height:5.6mm;border:.9pt solid var(--teal);border-radius:50%;display:grid;place-items:center;font-size:8.6pt;font-weight:800;color:var(--teal);margin-top:.4mm}
+ol.nums.two{display:grid;grid-template-columns:1fr 1fr;column-gap:6mm}
+
+/* شبكات وشارات */
+.grid{display:grid;gap:2.5mm;margin:2mm 0 3mm}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+.box{border:.8pt solid var(--line);border-radius:2mm;padding:2mm 3mm;break-inside:avoid}
+.box h5{margin:0 0 1mm;color:var(--teal);font-size:10.4pt;font-weight:800}
+.box ul{margin:0;padding-inline-start:4mm}
+.pill{border:.8pt solid var(--teal-l);border-radius:2mm;padding:1.6mm 2mm;text-align:center;font-weight:700;font-size:10pt;break-inside:avoid}
+.pill small{display:block;font-weight:400;color:var(--mute);font-size:8.8pt}
+
+/* المخطط الانسيابي */
+.flow{display:flex;align-items:stretch;gap:1.5mm;margin:2mm 0 3mm;break-inside:avoid}
+.flow .st{flex:1;border:.9pt solid var(--teal);border-radius:2mm;padding:1.6mm 2mm;text-align:center;font-weight:700;font-size:9.8pt;line-height:1.5;display:flex;flex-direction:column;justify-content:center}
+.flow .st i{font-style:normal;display:block;color:var(--gold);font-weight:900;font-size:10pt}
+.flow .st small{display:block;font-weight:400;color:var(--mute);font-size:8.8pt}
+.flow .ar{flex:none;align-self:center;color:var(--teal);font-weight:900;font-size:13pt}
+
+/* مخطط العقد (السلم والاستصناع) */
+.deal{border:.8pt solid var(--line);border-radius:2mm;padding:2mm 3mm;margin:2mm 0;break-inside:avoid}
+.deal .cap{font-weight:800;color:var(--gold);font-size:9.8pt;margin-bottom:1mm}
+.deal .row{display:grid;grid-template-columns:1fr 2.2fr 1fr;gap:2mm;align-items:center;text-align:center}
+.deal .party{border:.9pt solid var(--teal);border-radius:2mm;padding:1.2mm;font-weight:800;color:var(--teal);font-size:9.8pt}
+.deal .party small{display:block;color:var(--mute);font-weight:400;font-size:8.6pt}
+.deal .mid{font-size:9.4pt;line-height:1.55}
+.deal .mid div{border-bottom:.5pt dashed var(--line);padding:.5mm 0}
+.deal .mid div:last-child{border:0}
+
+/* الخط الزمني */
+.timeline{border-inline-start:1.2pt solid var(--teal-l);margin:2mm 2mm 3mm 0;padding-inline-start:4mm}
+.timeline .ev{position:relative;padding:.8mm 0;break-inside:avoid;display:flex;gap:3mm}
+.timeline .ev::before{content:"";position:absolute;right:-5.6mm;top:2.6mm;width:2.4mm;height:2.4mm;border-radius:50%;background:#fff;border:1pt solid var(--teal)}
+.timeline .ev .y{flex:0 0 24mm;font-weight:800;color:var(--gold)}
+
+/* أطراف البطاقة */
+.parties{display:flex;align-items:center;gap:1.2mm;margin:2mm 0 3mm}
+.parties .pill{flex:1}
+.parties .ar{color:var(--teal);font-weight:900}
